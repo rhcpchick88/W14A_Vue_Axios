@@ -1,8 +1,6 @@
 <template>
     <div>
-        <h1>API container</h1>
-        <h2>QOTD: {{jokeText}}</h2>
-        <button @click="getJoke">get Joke</button>               
+        
     </div>
 </template>
 
@@ -11,7 +9,7 @@ import {useMainStore} from '@/store/main'
 import {mapState} from 'pinia';
 
     export default {
-        name : "JokePage",
+        name : "SnakeJoke",
         computed: {
             // Actions
             ...mapState(useMainStore,['getJoke']),
@@ -21,6 +19,8 @@ import {mapState} from 'pinia';
     }
 </script>
 
-<style lang="scss" scoped>
-
+<style lang="css" scoped>
+button {
+    text-decoration: dashed;
+}
 </style>

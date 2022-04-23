@@ -1,18 +1,30 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-    <JokePage/>
+    <h1>{{jokeText}}</h1>
+    <JokeButton/>
+
   </div>
 </template>
 
 <script>
-import JokePage from "./components/JokePage.vue" 
+
+import JokeButton from "./components/JokeButton.vue"
+
+import {useMainStore} from '@/store/main'
+import {mapState} from 'pinia';
 
 export default {
   name: 'App',
   components: {
-    JokePage,
-}
+    JokeButton
+},
+  computed: {
+        // Actions
+    ...mapState(useMainStore,['getJoke']),
+            //getter
+    ...mapState(useMainStore,['jokeText'])
+  }
 }
 </script>
 
